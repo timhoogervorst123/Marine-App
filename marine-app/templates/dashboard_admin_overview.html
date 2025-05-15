@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <title>Begeleidersdashboard - Marine</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body class="student">
+
+<div class="student-container">
+    <h2>Welkom Begeleider</h2>
+    <a href="{{ url_for('logout') }}" class="logout-link">⬅ Uitloggen</a>
+
+    <!-- ✅ Voortgangstabel -->
+    <h3>Voortgang per student</h3>
+    <table class="progress-table">
+        <thead>
+            <tr>
+                <th>Student</th>
+                <th class="status-orange">Nog niet begonnen</th>
+                <th class="status-yellow">Bezig</th>
+                <th class="status-green">Gehaald</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for student in students %}
+            <tr>
+                <td>{{ student }}</td>
+                <td>{{ progress_data[student]['Nog niet begonnen'] }}</td>
+                <td>{{ progress_data[student]['Bezig'] }}</td>
+                <td>{{ progress_data[student]['Gehaald'] }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <!-- 📚 Studentenlijst -->
+    <h3>Studenten</h3>
+    <ul>
+        {% for student in students %}
+        <li class="admin-task">
+            <div class="task-header">
+                <span class="student-label">{{ student }}</span>
+                <div>
+                    <a href="{{ url_for('student_detail', student_name=student) }}" class="extra-link">📋 Bekijk Voortgang</a>
+                    <form method="POST" action="{{ url_for('remove_student') }}" style="display:inline;">
+                        <input type="hidden" name="student_name" value="{{ student }}">
+                        <button type="submit" class="extra-link" style="background-color:#c0392b;">🗑 Verwijder</button>
+                    </form>
+                </div>
+            </div>
+        </li>
+        {% endfor %}
+    </ul>
+
+    <!-- ➕ Taak toevoegen aan alle studenten -->
+    <h3>Taak toevoegen aan alle studenten</h3>
+    <form method="POST">
+        <input type="text" name="task_title" placeholder="Nieuwe taak" required>
+        <button type="submit" name="add_task_all">➕ Toevoegen</button>
+    </form>
+
+    <br>
+    <a href="{{ url_for('add_student') }}" class="extra-link">➕ Nieuwe student toevoegen</a>
+</div>
+
+</body>
+</html>

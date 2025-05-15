@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <title>Student Verwijderen</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body class="student">
+    <div class="student-container">
+        <h2>Student Verwijderen</h2>
+        <a href="{{ url_for('dashboard_admin') }}" class="logout-link">← Terug naar dashboard</a>
+
+        {% if message %}
+            <p class="info">{{ message }}</p>
+        {% endif %}
+
+        <form method="POST">
+            <label for="student_name">Kies een student:</label>
+            <select name="student_name" required>
+                {% for student in students %}
+                    <option value="{{ student }}">{{ student }}</option>
+                {% endfor %}
+            </select>
+
+            <button type="submit">Verwijderen</button>
+        </form>
+    </div>
+</body>
+</html>

@@ -1,0 +1,87 @@
+{
+    "Tim": [
+        {
+            "id": 1,
+            "title": "Nautische taken",
+            "status": "Bezig"
+        },
+        {
+            "id": 2,
+            "title": "Technische taken",
+            "status": "Gehaald"
+        },
+        {
+            "id": 3,
+            "title": "Catering",
+            "status": "Gehaald"
+        },
+        {
+            "id": 4,
+            "title": "Administratie",
+            "status": "Bezig"
+        },
+        {
+            "id": 5,
+            "title": "Neventaken",
+            "status": "Nog niet begonnen"
+        }
+    ],
+    "Thom": [
+        {
+            "id": 1,
+            "title": "Nautische taken",
+            "status": "Nog niet begonnen"
+        },
+        {
+            "id": 2,
+            "title": "Technische taken",
+            "status": "Nog niet begonnen"
+        },
+        {
+            "id": 3,
+            "title": "Catering",
+            "status": "Bezig"
+        },
+        {
+            "id": 4,
+            "title": "Administratie",
+            "status": "Bezig"
+        },
+        {
+            "id": 5,
+            "title": "Neventaken",
+            "status": "Gehaald"
+        }
+    ],
+    "Sem": [
+        {
+            "id": 1,
+            "title": "Nautische taken",
+            "status": "Nog niet begonnen"
+        },
+        {
+            "id": 2,
+            "title": "Technische taken",
+            "status": "Bezig"
+        },
+        {
+            "id": 3,
+            "title": "Catering",
+            "status": "Bezig"
+        },
+        {
+            "id": 4,
+            "title": "Administratie",
+            "status": "Bezig"
+        },
+        {
+            "id": 5,
+            "title": "Neventaken",
+            "status": "Nog niet begonnen"
+        }
+    ],
+    "Klaas": [],
+    "Tycho": [],
+    "Milan": [],
+    "Ronald": []
+}

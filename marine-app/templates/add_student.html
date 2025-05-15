@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <title>Student Toevoegen - Marine</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <style>
+        .form-container {
+            max-width: 400px;
+            margin: 100px auto;
+            background-color: rgba(20, 43, 71, 0.9);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px #000;
+            color: #ffffff;
+        }
+        .form-container h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .form-container input, .form-container button {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: none;
+            border-radius: 5px;
+        }
+        .form-container button {
+            background-color: #0077b6;
+            color: white;
+            cursor: pointer;
+        }
+        .form-container button:hover {
+            background-color: #005f87;
+        }
+        .back-link {
+            display: block;
+            text-align: center;
+            margin-top: 15px;
+            color: #90e0ef;
+        }
+        .message {
+            text-align: center;
+            margin: 15px 0;
+            font-weight: bold;
+        }
+        .success {
+            color: #2ecc71;
+        }
+        .error {
+            color: #ff6b6b;
+        }
+    </style>
+</head>
+<body class="login">
+    <div class="form-container">
+        <h2>➕ Student Toevoegen</h2>
+
+        {% if message %}
+            <p class="message {% if '✅' in message %}success{% else %}error{% endif %}">{{ message }}</p>
+        {% endif %}
+
+        <form method="POST">
+            <input type="text" name="student_name" placeholder="Studentnaam" required>
+            <input type="text" name="student_password" placeholder="Wachtwoord" required>
+            <button type="submit">Toevoegen</button>
+        </form>
+
+        <a href="{{ url_for('dashboard_admin') }}" class="back-link">⬅ Terug naar Dashboard</a>
+    </div>
+</body>
+</html>

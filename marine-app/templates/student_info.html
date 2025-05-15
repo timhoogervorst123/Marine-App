@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <title>Voorwoord & Hoofdstuk 1</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body class="student">
+    <div class="student-container">
+        <h2>Welkom {{ student }}</h2>
+        <a href="{{ url_for('dashboard_student') }}" class="logout-link">← Terug naar dashboard</a>
+        <hr>
+
+        <img src="{{ url_for('static', filename='images/marine_logo.png') }}" alt="Marine logo" class="info-image">
+
+        <h3>Voorwoord</h3>
+        <p>
+            Beroepsgericht Opleiden staat centraal bij de opleidingen van defensie. Het gedachtegoed is gebaseerd op Beroepsgericht onderwijs (BGO) en het ‘‘overal en altijd leren”.<br><br>
+            <em>Je leerwerkperiode is bedoeld om je te laten ervaren hoe het er aan toe gaat bij een (operationele) eenheid, zoals een schip of kazerne. Aan de hand van opdrachten en vragen in dit takenboek werk je actief aan inzicht in de administratieve wereld.</em>
+        </p>
+
+        <h3>Hoofdstuk 1 – Persoonlijke gegevens</h3>
+        <p>
+            In dit hoofdstuk worden je persoonlijke gegevens ingevuld, zoals naam, rang, PS/V nummer, opleiding, school en begeleiders. Dit vormt het formele begin van je leertakenboek.
+        </p>
+
+        <h3>Wat ga je leren?</h3>
+        <p>
+            Tijdens deze leerwerkperiode doe je ervaring op met maritieme administratie, gegevensverwerking en samenwerking binnen een militaire organisatie. Je leert formulieren invullen, digitale systemen gebruiken en rapportages maken die van belang zijn voor de voortgang van jouw opleiding én het functioneren van jouw eenheid.
+        </p>
+
+        <h3>Waarom is dit belangrijk?</h3>
+        <p>
+            De taken in dit boek sluiten aan op situaties uit de praktijk. Door deze opdrachten uit te voeren, leer je niet alleen wat je moet doen, maar ook waarom je het doet. Dat helpt je om later zelfstandig en verantwoord op te treden in de beroepspraktijk van de Koninklijke Marine.
+        </p>
+    </div>
+</body>
+</html>
