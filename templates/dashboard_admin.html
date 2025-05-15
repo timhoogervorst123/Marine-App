@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <title>Begeleidersdashboard - Marine</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <h2>Welkom Begeleider</h2>
+    <a href="{{ url_for('logout') }}">Uitloggen</a>
+
+    <h3>Taak toevoegen</h3>
+    <form method="POST">
+        <input type="text" name="task_title" placeholder="Nieuwe taak" required>
+        <button type="submit" name="add_task">Toevoegen</button>
+    </form>
+
+    <h3>Huidige taken</h3>
+    <ul>
+        {% for task in tasks %}
+            <li class="admin-task">
+                <div class="task-header">
+                    <strong>{{ task.title }}</strong>
+                    <span class="student-label">Student: {{ task.owner }}</span>
+                </div>
+                <div class="task-actions">
+                    Status: <span class="
+    {% if task.status == 'Nog niet begonnen' %}status-nietbegonnen{% endif %}
+    {% if task.status == 'Bezig' %}status-bezig{% endif %}
+    {% if task.status == 'Gehaald' %}status-gehaald{% endif %}
+">{{ task.status }}</span>
+
+                    <form method="POST" style="display:inline;">
+                        <input type="hidden" name="task_id" value="{{ task.id }}">
+                        <select name="new_status">
+                            <option value="Nog niet begonnen" {% if task.status == "Nog niet begonnen" %}selected{% endif %}>Nog niet begonnen</option>
+                            <option value="Bezig" {% if task.status == "Bezig" %}selected{% endif %}>Bezig</option>
+                            <option value="Gehaald" {% if task.status == "Gehaald" %}selected{% endif %}>Gehaald</option>
+                        </select>
+                        <button type="submit" name="update_status">Wijzig</button>
+                        <button type="submit" name="delete_task">Verwijder</button>
+                    </form>
+                </div>
+            </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

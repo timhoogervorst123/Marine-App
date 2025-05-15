@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <title>Inloggen - Marine App</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body class="login-page">
+<video autoplay muted loop id="bg-video">
+    <source src="{{ url_for('static', filename='videos/112722-695433093.mp4') }}" type="video/mp4">
+    Je browser ondersteunt geen videoachtergronden.
+</video>
+
+    <div class="login-container">
+        <h1>Inloggen</h1>
+        <form method="POST">
+            <label for="username">Gebruikersnaam:</label>
+            <input type="text" id="username" name="username" required>
+
+            <label for="password">Wachtwoord:</label>
+            <input type="password" id="password" name="password" required>
+
+            <button type="submit">Login</button>
+        </form>
+    </div>
+</body>
+</html>

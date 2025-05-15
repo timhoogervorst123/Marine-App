@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <title>Begeleidersdashboard - {{ student }}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <h2>Voortgang van {{ student }}</h2>
+    <a href="{{ url_for('dashboard_admin') }}">⬅ Terug naar studentenlijst</a>
+
+    <h3>Taak toevoegen voor {{ student }}</h3>
+    <form method="POST">
+        <input type="text" name="task_title" placeholder="Nieuwe taak" required>
+        <button type="submit" name="add_task">Toevoegen</button>
+    </form>
+
+    <h3>Huidige Taken</h3>
+    <ul>
+        {% for task in tasks %}
+        <li>
+            <strong>{{ task.title }}</strong> - Status: {{ task.status }}
+
+            <form method="POST" style="display:inline;">
+                <input type="hidden" name="task_id" value="{{ task.id }}">
+                <select name="new_status">
+                    <option value="Nog niet begonnen" {% if task.status == "Nog niet begonnen" %}selected{% endif %}>Nog niet begonnen</option>
+                    <option value="Bezig" {% if task.status == "Bezig" %}selected{% endif %}>Bezig</option>
+                    <option value="Gehaald" {% if task.status == "Gehaald" %}selected{% endif %}>Gehaald</option>
+                </select>
+                <button type="submit" name="update_status">Wijzig</button>
+            </form>
+
+            <form method="POST" style="display:inline;">
+                <input type="hidden" name="task_id" value="{{ task.id }}">
+                <button type="submit" name="delete_task">Verwijder</button>
+            </form>
+        </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

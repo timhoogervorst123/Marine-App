@@ -1,0 +1,247 @@
+/* Algemene stijl */
+body {
+    font-family: Arial, sans-serif;
+    color: #ffffff;
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    color: #90e0ef;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+li {
+    background-color: #1f3b5c;
+    padding: 15px;
+    margin-bottom: 10px;
+    border-radius: 6px;
+}
+
+/* Loginpagina */
+body.login, body.login-page {
+    background: linear-gradient(to bottom, #001f3f, #003366);
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: url("../images/d9a81efc-fab4-440a-9eeb-ec50430cd3e7.png") no-repeat center center fixed;
+    background-size: cover;
+}
+
+.login-container {
+    background-color: rgba(0, 32, 63, 0.8);
+    padding: 40px;
+    border-radius: 12px;
+    max-width: 400px;
+    width: 100%;
+    text-align: center;
+    box-shadow: 0 0 20px rgba(0,0,0,0.5);
+    animation: fadeIn 1s ease-out;
+}
+
+.login-container h1, .login-container h2 {
+    margin-bottom: 30px;
+    color: #ffffff;
+}
+
+.login-container label {
+    display: block;
+    text-align: left;
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+
+.login-container input[type="text"],
+.login-container input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: none;
+    border-radius: 8px;
+}
+
+.login-container button {
+    background-color: #004080;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.login-container button:hover {
+    background-color: #0066cc;
+    animation: pulse 0.5s infinite;
+}
+
+.error {
+    color: #ff6b6b;
+    font-weight: bold;
+    margin-top: 10px;
+    text-align: center;
+}
+
+.info {
+    font-size: 0.9em;
+    margin-top: 15px;
+    text-align: center;
+    color: #ccc;
+}
+
+/* Video achtergrond */
+#bg-video {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    min-width: 100%;
+    min-height: 100%;
+    z-index: -1;
+    object-fit: cover;
+}
+
+/* Studenten Dashboard */
+body.dashboard-student {
+    background: url("../images/dashboard_background.png") no-repeat center center fixed;
+    background-size: cover;
+}
+
+body.student {
+    margin: 0;
+    padding: 0;
+    background: url("../images/dashboard_background.png") no-repeat center center fixed;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    font-family: Arial, sans-serif;
+    color: #ffffff;
+}
+
+
+.student-container {
+    margin-top: 60px;
+    background-color: rgba(20, 43, 71, 0.9);
+    padding: 40px;
+    border-radius: 12px;
+    width: 90%;
+    max-width: 600px;
+    box-shadow: 0 0 15px rgba(0,0,0,0.4);
+}
+
+/* Begeleiders Dashboard */
+body.dashboard-admin {
+    background: url("../images/dashboard_background.png") no-repeat center center fixed;
+    background-size: cover;
+}
+
+/* Statuskleuren bij taken */
+.status-nietbegonnen { color: #f4a261; font-weight: bold; }
+.status-bezig { color: #fbc531; font-weight: bold; }
+.status-gehaald { color: #2ecc71; font-weight: bold; }
+.status { font-weight: bold; color: #90e0ef; }
+
+/* Buttons en links */
+.extra-link, .logout-link {
+    display: inline-block;
+    margin: 15px 0;
+    padding: 10px 15px;
+    background-color: #005f87;
+    color: #fff;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.extra-link:hover {
+    background-color: #0077b6;
+}
+
+.logout-link {
+    margin-bottom: 20px;
+    color: #90e0ef;
+}
+
+/* Info-afbeelding */
+.info-image {
+    max-width: 150px;
+    display: block;
+    margin: 20px auto;
+    border-radius: 8px;
+}
+
+/* Admin Dashboard Taken */
+.admin-task {
+    background-color: #1f3b5c;
+    padding: 15px;
+    margin-bottom: 12px;
+    border-radius: 8px;
+}
+
+.task-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.student-label {
+    background-color: #0077b6;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 0.9em;
+    font-weight: bold;
+}
+
+.task-actions {
+    margin-top: 10px;
+}
+
+/* Voortgangstabel */
+.progress-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    text-align: center;
+}
+
+.progress-table th, .progress-table td {
+    padding: 10px;
+    border: 1px solid #ccc;
+}
+
+.status-orange { background-color: #ffa500; color: #000; font-weight: bold; }
+.status-yellow { background-color: #ffff66; color: #000; font-weight: bold; }
+.status-green { background-color: #66ff66; color: #000; font-weight: bold; }
+
+/* Animaties */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+/* Begeleiders Dashboard Achtergrond */
+body.dashboard-admin {
+    background: url("../images/dashboard_background.png") no-repeat center center fixed;
+    background-size: cover;
+    font-family: Arial, sans-serif;
+    color: #ffffff;
+}
+

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <title>Student Dashboard - Marine</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body class="student">
+    <div class="student-container">
+        <h2>Welkom {{ student }}</h2>
+        <a href="{{ url_for('logout') }}" class="logout-link">Uitloggen</a>
+
+        <a href="{{ url_for('student_info') }}" class="extra-link">Bekijk Voorwoord & Hoofdstuk 1</a>
+
+        <h3>Jouw voortgang</h3>
+        <table class="progress-table">
+            <tr>
+                <th class="status-orange">Nog niet begonnen</th>
+                <th class="status-yellow">Bezig</th>
+                <th class="status-green">Gehaald</th>
+            </tr>
+            <tr>
+                <td class="status-orange">{{ progress['Nog niet begonnen'] }}</td>
+                <td class="status-yellow">{{ progress['Bezig'] }}</td>
+                <td class="status-green">{{ progress['Gehaald'] }}</td>
+            </tr>
+        </table>
+
+        <h3>Jouw taken</h3>
+        {% if tasks %}
+            <ul>
+                {% for task in tasks %}
+                    <li>
+                        <strong>{{ task.title }}</strong><br>
+                        Status:
+                        <span class="
+                            {% if task.status == 'Nog niet begonnen' %}status-nietbegonnen{% endif %}
+                            {% if task.status == 'Bezig' %}status-bezig{% endif %}
+                            {% if task.status == 'Gehaald' %}status-gehaald{% endif %}
+                        ">{{ task.status }}</span>
+                    </li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p>Je hebt nog geen taken.</p>
+        {% endif %}
+    </div>
+</body>
+</html>
